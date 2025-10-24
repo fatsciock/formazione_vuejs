@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Indovina il numero</title>
+</head>
+<body>
+    <h1>Gioco: Indovina il numero</h1>
+    <p>Apri la console per eseguire il programma.</p>
+
+    <script>
+        // function chiediLimiti() {
+        //     let min, max;
+
+        //     while (true) {
+        //         min = prompt("Inserisci il valore minimo:");
+        //         if (min === null) return null; 
+        //         min = parseInt(min);
+
+        //         max = prompt("Inserisci il valore massimo:");
+        //         if (max === null) return null;
+        //         max = parseInt(max);
+
+        //         if (isNaN(min) || isNaN(max)) {
+        //             alert("Inserisci solo numeri validi.");
+        //         } else if (min >= max) {
+        //             alert("Il valore minimo deve essere minore del massimo.");
+        //         } else {
+        //             return { min, max };
+        //         }
+        //     }
+        // }
+
+        function generaNumero(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function giocaPartita(min, max) {
+            let numeroSegreto = generaNumero(min, max);
+            let tentativi = 0;
+            let indovinato = false;
+
+            while (!indovinato) {
+                let guess = NaN;
+                while (isNaN(guess)) {
+                    guess = Number(prompt(`Indovina un numero tra ${min} e ${max}:`));
+                    if (isNaN(guess)) {
+                        alert("Inserisci un numero valido!");
+                    }
+                }
+
+                tentativi++;
+
+                if (guess < min || guess > max) {
+                    alert(`Il numero deve essere compreso tra ${min} e ${max}.`);
+                } else if (guess === numeroSegreto) {
+                    alert("🎉 Complimenti! Hai indovinato in " + tentativi + " tentativi.");
+                    indovinato = true;
+                } else if (guess < numeroSegreto) {
+                    alert("Troppo basso!");
+                } else {
+                    alert("Troppo alto!");
+                }
+            }
+        }
+
+        function avviaGioco() {
+            let giocaAncora = true;
+
+            while (giocaAncora) {
+                // let limiti = chiediLimiti();
+                // if (limiti === null) {
+                //     alert("Gioco annullato.");
+                //     return;
+                // }
+
+                let min, max;
+
+                while (true) {
+                    min = prompt("Inserisci il valore minimo:");
+                    if (min === null) return null; 
+                    min = parseInt(min);
+
+                    max = prompt("Inserisci il valore massimo:");
+                    if (max === null) return null;
+                    max = parseInt(max);
+
+                    if (isNaN(min) || isNaN(max)) {
+                        alert("Inserisci solo numeri validi.");
+                    } else if (min >= max) {
+                        alert("Il valore minimo deve essere minore del massimo.");
+                    } else {
+                        break;
+                    }
+                }
+
+                //giocaPartita(limiti.min, limiti.max);
+                giocaPartita(min, max);
+
+                let risposta = prompt("Vuoi giocare di nuovo? (sì/no)");
+                if (risposta === null || risposta.toLowerCase() !== "sì") {
+                    giocaAncora = false;
+                    alert("Grazie per aver giocato!");
+                }
+            }
+        }
+
+        // Avvio del gioco
+        avviaGioco();
+    </script>
+</body>
+</html>

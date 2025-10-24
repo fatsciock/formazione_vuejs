@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Consegna - Gestore Eventi Musicali (Vue)</title>
+	<style>
+		body {
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+			background: #f0f6ff;
+			color: #0f172a;
+			margin: 0;
+			padding: 32px;
+		}
+
+		.container {
+			max-width: 920px;
+			margin: 0 auto;
+			background: #ffffff;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 6px 25px rgba(16, 24, 40, 0.08);
+		}
+
+		h1 {
+			margin: 0 0 12px;
+			font-size: 26px;
+			color: #062a5a;
+		}
+
+		h2 {
+			margin-top: 18px;
+			font-size: 18px;
+			color: #0b4f78;
+		}
+
+		.lead {
+			color: #475569;
+			margin-bottom: 12px;
+		}
+
+		.section {
+			background: #fbfdff;
+			padding: 16px;
+			border-radius: 8px;
+			margin-bottom: 14px;
+		}
+
+		ul {
+			margin: 8px 0 12px 20px;
+		}
+
+		code {
+			background: #eef8ff;
+			padding: 2px 6px;
+			border-radius: 6px;
+			color: #0369a1;
+		}
+
+		.badge {
+			background: #06b6d4;
+			color: #fff;
+			padding: 4px 8px;
+			border-radius: 6px;
+			font-weight: 600
+		}
+
+		.hint {
+			font-size: 13px;
+			color: #64748b
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Gestore Eventi Musicali</h1>
+
+		<div class="section">
+			<h2>Contesto</h2>
+			<p>Realizzare una piccola app che gestisca eventi musicali (concerti, festival, dj set). Ogni evento dovrà
+				contenere le seguenti proprietà di base:</p>
+			<ul>
+				<li><strong>titolo</strong> (string)</li>
+				<li><strong>artista</strong> (string)</li>
+				<li><strong>data</strong> (string, ad esempio nel formato YYYY-MM-DD)</li>
+				<li><strong>venue</strong> (string)</li>
+				<li><strong>genere</strong> (es. Rock, Pop, Elettronica) (string)</li>
+				<li><strong>bigliettiDisponibili</strong> (number)</li>
+				<li><strong>prezzo</strong> (number — prezzo base del biglietto in €)</li>
+				<li><strong>stato</strong> — Programmato / Posticipato / Cancellato (string)</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<h2>Requisiti obbligatori</h2>
+			<ul>
+				<li>Organizzare l'app in componenti: <code>EventList.vue</code>, <code>EventCard.vue</code>, e
+					<code>App.vue</code> come genitore.</li>
+				<li>Visualizzare la lista di eventi usando <code>EventList</code> (ogni evento è un
+					<code>EventCard</code>).</li>
+				<li>Implementare un form per aggiungere un nuovo evento.</li>
+				<li>Permettere la rimozione di un evento.</li>
+				<li>Filtrare per <strong>genere</strong> e per <strong>stato</strong>.</li>
+				<li>Ordinare la lista per <strong>data</strong> (più recenti/meno recenti) o per <strong>prezzo</strong>
+					(crescente/decrescente).</li>
+				<li>Mostrare un piccolo pannello riassuntivo: numero totale di eventi, eventi programmati (Programmati)
+					e evento più prossimo (min data futura).</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<h2>Requisiti non obbligatori (bonus)</h2>
+			<ul>
+				<li>Aggiungere proprietà opzionali agli eventi: durata (ore), età minima consigliata, link esterno
+					(ticket page).</li>
+				<li>Filtri avanzati: intervallo di date (da — a), filtri combinati (es. genere + prezzo massimo), e
+					ricerca testuale su titolo/artista.</li>
+				<li>Statistiche avanzate: numero di eventi per genere, media prezzo biglietto, evento con più biglietti
+					disponibili, percentuale di eventi cancellati.</li>
+				<li>Usare <code>slot</code> in <code>EventCard</code> per mostrare badge personalizzati (es. “Sold out”,
+					o l'icona “⚠️” per eventi posticipati/cancellati).</li>
+				<li>Aggiungere possibilità di modificare i dati di un evento.</li>
+				<li>UI/UX extra: colori dinamici per genere (es. Rock = bordeaux, Elettronica = viola), e ordinamento
+					opzionale che porta gli eventi <em>con stato Cancelled</em> in fondo e quelli <em>Scheduled</em> in
+					cima.</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

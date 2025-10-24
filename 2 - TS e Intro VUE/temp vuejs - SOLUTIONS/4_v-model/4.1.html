@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body id="app">
+        <input :value="text" @input="onInput" placeholder="Inserisci testo">
+        <p>Il testo inserito è {{ text }}</p>
+    </body>
+
+    <!-- Vue.js -->
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const text = ref('')
+
+                function onInput(e) {
+                    text.value = e.target.value
+                }
+
+                return {
+                    text,
+                    onInput
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

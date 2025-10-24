@@ -1,0 +1,30 @@
+Esercizio 2 – “Mini Catalogo Film” (livello intermedio/avanzato)
+🎯 Obiettivi
+
+Gestire dati strutturati (array di oggetti).
+Comunicare tra più componenti (props ed emit).
+Usare componenti per visualizzare e filtrare dati.
+Allenarsi con composizione di componenti.
+
+💡 Descrizione
+Creiamo un mini catalogo di film:
+il componente principale mostra una lista di film caricati in un array;
+ogni film è un componente figlio con titolo, anno e valutazione;
+un componente di filtro permette di mostrare solo i film sopra una certa valutazione.
+
+🧠 Struttura
+MovieCatalog.vue → genitore (contiene tutti i film e gestisce il filtro)
+MovieCard.vue → figlio (mostra singolo film)
+FilterPanel.vue → figlio che emette la soglia di filtro
+
+🔧 Step suggeriti
+In MovieCatalog, definisci un array di film ({ titolo, anno, rating }).
+Passa ogni film a MovieCard tramite v-for.
+Aggiungi FilterPanel con uno slider o input number che emette un evento update-filter.
+Il genitore filtra dinamicamente i film in base alla soglia ricevuta.
+(Facoltativo) Aggiungere una computed per mostrare il numero di film visibili.
+
+🍿 Estensioni
+Aggiungere un sistema di “preferiti” (clic su una stella → evento toggle-favorite).
+Mostrare un contatore dei preferiti nel genitore.
+Gestire un componente di dettaglio film (MovieDetails.vue) aperto al click.

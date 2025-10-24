@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body id="app">
+        <button @click="toggle">Cambia</button>
+        <p v-if="awesome">Vue.js è bellissimo!</p>
+        <p v-else>E invece no! 😢</p>
+    </body>
+
+    <!-- Vue.js -->
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const awesome = ref(true)
+
+                function toggle() {
+                    awesome.value = !awesome.value
+                    console.log(awesome.value)
+                }
+
+                return {
+                    awesome,
+                    toggle
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

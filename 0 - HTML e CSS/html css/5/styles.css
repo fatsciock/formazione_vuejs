@@ -1,0 +1,20 @@
+h1 {
+    color: blue;
+    font-size: 36px;
+}
+
+p {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+img {
+    width: 300px;
+    border: 2px solid #000;
+}
+
+ul {
+    list-style-type: circle;
+    color: green;
+    margin-left: 20px;
+}

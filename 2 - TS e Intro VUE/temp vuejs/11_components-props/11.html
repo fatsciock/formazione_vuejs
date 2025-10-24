@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>11 Component Props</title>
+    </head>
+    <body id="app">
+        <input type="number" v-model="my_num">
+        <child-comp :num="my_num"></child-comp>
+    </body>
+
+    <!-- Vue.js -->
+    <script type="module">
+        const { createApp, ref } = Vue
+        import ChildComp from './child.js'
+
+        createApp({
+            components: {
+                ChildComp
+            },
+            setup() {
+                const my_num = ref(0)
+
+                return {
+                    my_num
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

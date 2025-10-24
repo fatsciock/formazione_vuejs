@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body id="app">
+    <div>
+      <p>Il valore del contatore è {{ count }}</p>
+      <button @click="add">+1</button>
+      <button @click="subtract">-1</button>
+    </div>
+  </body>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const count = ref(0)
+
+        function add() {
+          count.value++
+        }
+
+        function subtract() {
+          count.value--
+        }
+
+        return {
+          count,
+          add,
+          subtract
+        }
+      }
+    }).mount('#app')
+  </script>
+</html>

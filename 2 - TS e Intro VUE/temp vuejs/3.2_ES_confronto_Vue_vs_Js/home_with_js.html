@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      <p>Il valore del contatore è <span id="count">0</span></p>
+      <button id="add">+1</button>
+      <button id="subtract">-1</button>
+    </div>
+  </body>
+
+  <script>
+    // Selezioniamo gli elementi necessari
+    const countSpan = document.getElementById('count');
+    const incrementButton = document.getElementById('add');
+    const decrementButton = document.getElementById('subtract');
+
+    // Inizializziamo il conteggio
+    let count = 0;
+
+    // Funzione per incrementare il conteggio
+    function increment() {
+      count++;
+      countSpan.textContent = count;
+    }
+
+    // Funzione per decrementare il conteggio
+    function decrement() {
+      count--;
+      countSpan.textContent = count;
+    }
+
+    // Aggiungiamo l'evento click al pulsante
+    incrementButton.addEventListener('click', increment);
+    decrementButton.addEventListener('click', decrement);
+  </script>
+</html>

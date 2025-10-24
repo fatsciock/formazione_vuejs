@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>10 Component</title>
+    </head>
+    <body id="app">
+        <childcomp></childcomp>
+        <childcomp></childcomp>
+        <childcomp></childcomp>
+    </body>
+
+    <!-- Vue.js -->
+    <script type="module">
+        const { createApp } = Vue
+        import Childcomp from './child.js'
+
+        createApp({
+            components: {
+                Childcomp
+            }
+        }).mount('#app')
+    </script>
+</html>

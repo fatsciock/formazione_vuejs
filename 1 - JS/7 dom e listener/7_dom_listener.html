@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM ed Event Listener - Esempi</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .box { width: 100px; height: 100px; background: lightblue; margin: 10px; }
+    #counter { font-size: 20px; margin: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+    .remove { margin-left: 10px; color: red; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>DOM ed Event Listener - Demo</h1>
+
+  <h2>1. Modifica del DOM</h2>
+  <p id="demoText">Testo originale</p>
+  <button onclick="document.getElementById('demoText').innerText='Testo modificato!'">Cambia testo</button>
+
+  <h2>2. Creazione dinamica</h2>
+  <ul id="list"></ul>
+  <button onclick="addItem()">Aggiungi elemento</button>
+
+  <h2>3. Event Listener</h2>
+  <button id="colorBtn">Cambia colore sfondo</button>
+
+  <h2>4. Contatore</h2>
+  <button onclick="decrease()">-</button>
+  <span id="counter">0</span>
+  <button onclick="increase()">+</button>
+
+  <h2>5. Lista della spesa</h2>
+  <input id="itemInput" type="text" placeholder="Aggiungi un elemento">
+  <button onclick="addToList()">Aggiungi</button>
+  <ul id="shoppingList"></ul>
+
+  <script>
+    // Esempio 2: Creazione dinamica
+    function addItem() {
+      const li = document.createElement("li");
+      li.innerText = "Nuovo elemento";
+      document.getElementById("list").appendChild(li);
+    }
+
+    // Esempio 3: Event listener
+    document.getElementById("colorBtn").addEventListener("click", () => {
+      document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    });
+
+    // Esempio 4: Contatore
+    let count = 0;
+    function increase() {
+      count++;
+      document.getElementById("counter").innerText = count;
+    }
+    function decrease() {
+      count--;
+      document.getElementById("counter").innerText = count;
+    }
+
+    // Esempio 5: Lista della spesa
+    function addToList() {
+      const input = document.getElementById("itemInput");
+      if (input.value.trim() === "") return;
+
+      const li = document.createElement("li");
+      li.innerText = input.value;
+
+      const removeBtn = document.createElement("span");
+      removeBtn.innerText = "x";
+      removeBtn.className = "remove";
+      removeBtn.addEventListener("click", () => li.remove());
+
+      li.appendChild(removeBtn);
+      document.getElementById("shoppingList").appendChild(li);
+
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

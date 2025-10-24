@@ -1,0 +1,47 @@
+import type { Evento } from '@/types/types';
+
+export const eventiMock: Evento[] = [
+	{
+		titolo: "Rockin' Summer",
+		artista: "The Rolling Waves",
+		data: "2025-07-15",
+		venue: "Arena di Verona",
+		genere: "Rock",
+		bigliettiDisponibili: 120,
+		prezzo: 45,
+		stato: "Programmato",
+		durata: 3,
+		etaMinima: 16,
+	},
+	{
+		titolo: "Electro Night",
+		artista: "DJ Aurora",
+		data: "2025-11-02",
+		venue: "Fabrique Milano",
+		genere: "Elettronica",
+		bigliettiDisponibili: 0,
+		prezzo: 60,
+		stato: "Posticipato",
+		linkEsterno: "https://www.ticketone.it/event/electro-night",
+	},
+	{
+		titolo: "Pop Vibes Festival",
+		artista: "Various Artists",
+		data: "2025-08-21",
+		venue: "Parco Nord Bologna",
+		genere: "Pop",
+		bigliettiDisponibili: 350,
+		prezzo: 35,
+		stato: "Programmato",
+	},
+	{
+		titolo: "Jazz & Soul Evenings",
+		artista: "Blue Moon Quartet",
+		data: "2025-06-10",
+		venue: "Teatro Comunale di Ferrara",
+		genere: "Jazz",
+		bigliettiDisponibili: 50,
+		prezzo: 30,
+		stato: "Cancellato",
+	},
+];

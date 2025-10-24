@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+      <p id="myDiv">Ciao! Sono un div</p>
+      <button id="change">Cambia testo</button>
+  </body>
+
+  <script>
+    // Selezioniamo gli elementi necessari
+    const myDiv = document.getElementById('myDiv');
+    const changeButton = document.getElementById('change');
+
+    function changeText() {
+        myDiv.textContent = "Testo nuovo!";
+    }
+
+    changeButton.addEventListener('click', changeText);
+  </script>
+</html>

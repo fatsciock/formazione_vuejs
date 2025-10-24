@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Array e Oggetti</title>
+</head>
+<body>
+    <h1>Array e Oggetti</h1>
+    <p>Apri la console per eseguire il programma.</p>
+
+    <script>
+        // Creazione di un array di numeri
+        let numeri = [10, 20, 30, 40, 50];
+        let misto = [10, "venti", 30, "quaranta", 50, true];
+
+        function stampaArray(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+            console.log("----------Fine----------");
+        }
+
+        function stampaArray2(arr) {
+            for (const el of arr) {
+                console.log(el);
+            }
+            console.log("----------Fine----------");
+        }
+
+        function cercaInArray(arr, valore) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === valore) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        stampaArray(misto);
+        misto.push("nuovo elemento");
+        stampaArray(misto);
+        misto.pop();
+        stampaArray(misto);
+
+        misto.splice(2, 1);
+        stampaArray(misto);
+
+        console.log(cercaInArray(misto, "venti"));
+        console.log(cercaInArray(misto, "10"));
+
+        // Funzione per calcolare la somma degli elementi dell'array
+        function sommaArray(arr) {
+            let somma = 0;
+            for (let i = 0; i < arr.length; i++) {
+                somma += arr[i];
+            }
+            return somma;
+        }
+
+        // Funzione per trovare il valore massimo nell'array
+        function massimoArray(arr) {
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        // Funzione per trovare il valore minimo nell'array
+        function minimoArray(arr) {
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+        // Funzione per calcolare la media degli elementi dell'array
+        function mediaArray(arr) {
+            let somma = sommaArray(arr);
+            return somma / arr.length;
+        }
+
+        console.log("Somma degli elementi dell'array: " + sommaArray(numeri));
+        console.log("Valore massimo nell'array: " + massimoArray(numeri));
+        console.log("Valore minimo nell'array: " + minimoArray(numeri));
+        console.log("Media degli elementi dell'array: " + mediaArray(numeri));
+
+
+        // SEZIONE OGGETTI
+
+        if (false) {
+            // Creazione di un oggetto "studente"
+            let studente = {
+                nome: "Mario",
+                eta: 20,
+                corsi: ["Matematica", "Fisica", "Chimica"]
+            };
+
+            // Funzione per stampare le informazioni dello studente
+            function stampaInfoStudente(studente) {
+                console.log("Nome: " + studente.nome);
+                console.log("Età: " + studente.eta);
+                console.log("Corsi: " + studente.corsi.join(", "));
+            }
+
+            stampaInfoStudente(studente);
+
+
+            let libri = [];
+
+            function aggiungiLibro(titolo, autore, anno, generi, prezzo) {
+                let libro = {
+                    titolo: titolo,
+                    autore: autore,
+                    anno: anno,
+                    generi: generi,
+                    prezzo: prezzo
+                };
+                libri.push(libro);
+            }
+
+            function popolaLibri() {
+                aggiungiLibro("Il Signore degli Anelli", "J.R.R. Tolkien", 1954, ["Fantasy", "Avventura"], 29.99);
+                aggiungiLibro("1984", "George Orwell", 1949, ["Distopia", "Politico"], 19.99);
+                aggiungiLibro("Il Grande Gatsby", "F. Scott Fitzgerald", 1925, ["Classico", "Romanzo"], 14.99);
+                aggiungiLibro("To Kill a Mockingbird", "Harper Lee", 1960, ["Classico", "Romanzo"], 24.99);
+            }
+
+            function stampaLibri() {
+                for (let i = 0; i < libri.length; i++) {
+                    let libro = libri[i];
+                    console.log("Titolo: " + libro.titolo);
+                    console.log("Autore: " + libro.autore);
+                    console.log("Anno: " + libro.anno);
+                    console.log("Generi: " + libro.generi.join(", "));
+                    console.log("Prezzo: " + libro.prezzo + "€");
+                    console.log("-------------------------");
+                }
+            }
+
+
+            function cercaAutore(autore) {
+                let risultati = [];
+                for (let i = 0; i < libri.length; i++) {
+                    if (libri[i].autore === autore) {
+                        risultati.push(libri[i]);
+                    }
+                }
+                return risultati;
+            }
+
+            function cercaGenere(genere) {
+                let risultati = [];
+                for (let i = 0; i < libri.length; i++) {
+                    if (libri[i].generi.includes(genere)) {
+                        risultati.push(libri[i]);
+                    }
+                }
+                return risultati;
+            }
+        }
+    </script>
+</body>
+</html>

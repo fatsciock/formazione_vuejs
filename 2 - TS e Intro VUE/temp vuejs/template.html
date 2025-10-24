@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body id="app">
+    <p>Ehi! {{ greetings }}</p>
+  </body>
+
+  <!-- Vue.js -->
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      setup() {
+        // CODICE
+        const greetings = "Impariamo ad usare Vue.js!"
+
+        return {
+          // QUA VANNO TORNATE VARIABILI E FUNZIONI CHE SI VOGLIONO UTILIZZARE
+          greetings
+        }
+      }
+    }).mount('#app')
+  </script>
+</html>

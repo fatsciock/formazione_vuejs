@@ -1,0 +1,13 @@
+h1 {
+    color: blue;
+}
+
+ul {
+    color: green;
+    margin: 20px;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM e listener</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    h1 { color: darkblue; }
+    button { padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1 class="text-red">Ciao ragazzi!</h1>
+  <p class="text-red" id="da-cambiare">Questa è una pagina HTML con un po' di CSS.</p>
+  <button>Cliccami</button>
+  <input type="text" name="text" id="input-text"/>
+  <div id="vuoto"></div>
+
+    <script>
+    let divVuoto = document.getElementById("vuoto");
+
+    divVuoto.innerText = "Ciao! Sono un div riempito tramite Js!"
+    divVuoto.style.padding = "10px";
+    divVuoto.style.backgroundColor = "green";
+
+    let nodes = document.getElementsByClassName("text-red");
+    for (const node of nodes) {
+      node.style.color = "red";
+    }
+
+    let pDaCambiare = document.getElementById("da-cambiare");
+    pDaCambiare.innerText = "Nuovo";
+    
+    let inputText = document.getElementById("input-text");
+    inputText.value = "PROVA";
+
+    const newHeader1 =  document.createElement("h1");
+    newHeader1.innerText = "Sono un header creato con Js";
+
+    divVuoto.appendChild(newHeader1);
+    </script>
+</body>
+</html>

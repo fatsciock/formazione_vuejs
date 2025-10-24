@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Form di Registrazione</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registrazione</h2>
+    <form id="registrationForm">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+
+      <button type="submit">Invia</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita il refresh della pagina
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (nome === "" || email === "" || password === "") {
+        message.textContent = "Tutti i campi sono obbligatori!";
+        message.className = "message error";
+      } else {
+        message.textContent = "Registrazione completata!";
+        message.className = "message success";
+        form.reset(); // pulisce i campi
+      }
+    });
+  </script>
+</body>
+</html>

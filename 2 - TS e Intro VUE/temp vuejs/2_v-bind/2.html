@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            .redText {
+                color: red;
+            }
+        </style>
+    </head>
+    <body id="app">
+        <h1 :class="redTextStyle">Make me red!</h1>
+        <h1 v-bind:class="redTextStyle">Make me red!</h1>
+    </body>
+
+    <!-- Vue.js -->
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const redTextStyle = ref('redText')
+
+                return {
+                    redTextStyle
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

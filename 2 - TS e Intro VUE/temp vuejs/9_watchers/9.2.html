@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            .done {
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body id="app">
+        <p>Random = {{ count }}</p>
+        <p>{{ text }}</p>
+    </body>
+
+    <!-- Vue.js -->
+    <script>
+        const { createApp, ref, watch } = Vue
+
+        createApp({
+            setup() {
+                const count = ref(0)
+                const text = ref('')
+
+                //simula il fatto che i cambiamenti siano esterni
+                function generateRandomNumber() {
+                    count.value = Math.floor(Math.random() * 100) + 1
+                }
+
+                watch(count, () => {
+                    count.value % 2 === 0 ? text.value = 'Pari' : text.value = 'Dispari'
+                })
+
+                setInterval(generateRandomNumber, 3000);
+
+                return {
+                    count,
+                    text
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

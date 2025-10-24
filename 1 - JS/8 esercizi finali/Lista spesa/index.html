@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista della Spesa Completa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { padding: 5px; margin: 0 5px 10px 0; width: 120px; }
+        button { padding: 5px 10px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #888; padding: 8px; text-align: left; }
+        th { background: #eee; }
+        .total { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🛒 Lista della Spesa Completa</h1>
+
+    <label>Articolo:</label>
+    <input type="text" id="nome" placeholder="Nome articolo">
+    <label>Quantità:</label>
+    <input type="number" id="quantita" value="1" min="1">
+    <label>Prezzo unitario (€):</label>
+    <input type="number" id="prezzo" value="0" step="0.01" min="0">
+    <button id="addBtn">Aggiungi</button>
+
+    <table id="spesaTable">
+        <thead>
+            <tr>
+                <th>Articolo</th>
+                <th>Quantità</th>
+                <th>Prezzo unitario (€)</th>
+                <th>Totale (€)</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <p id="totale" class="total">Totale: 0 €</p>
+
+    <script src="spesa.js"></script>
+</body>
+</html>

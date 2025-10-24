@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Es 1</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .edit-mode {
+        background-color: #f0f0f0;
+      }
+
+      input {
+        margin-right: 2px;
+      }
+
+      button {
+        margin-left: 3px;
+        margin-right: 3px;
+      }
+    </style>
+  </head>
+  <body id="app">
+    <h1>Gestione Progetto To-Do</h1>
+    <input type="text" v-model="filterText" placeholder="Filtra per attività">
+    <select v-model="filterStatus">
+      <option value="all">Tutte</option>
+      <option value="completed">Completate</option>
+      <option value="pending">Pendenti</option>
+    </select>
+      
+    <ul>
+      <li v-for="task in filteredTasks" :key="task.id" :class="{ 'completed': task.completed, 'edit-mode': task.editing }">
+        <span v-if="!task.editing">{{ task.name }}</span>
+        <div v-else style="display: inline-block">
+          <input v-model="task.name">
+        </div>
+        <button @click="toggleCompletion(task)">{{ task.completed ? 'Segna come Pendente' : 'Segna come Completata' }}</button>
+        <button @click="task.editing = !task.editing">{{ task.editing ? 'Salva' : 'Modifica' }}</button>
+        <button @click="deleteTask(task.id)">Elimina</button>
+      </li>
+    </ul>
+
+    <h2>Aggiungi Nuova Attività</h2>
+    <input type="text" v-model="newTask.name" placeholder="Descrizione Attività">
+    <button @click="addTask">Aggiungi</button>
+
+    <p v-if="tasks.length === 0">Nessuna attività nel progetto</p>
+    <p v-else>Hai {{ tasks.length }} attività nel progetto</p>
+  </body>
+
+  <script>
+    const { createApp, ref, reactive, computed } = Vue
+
+    createApp({
+      setup() {
+        let id = 0
+
+        const newTask = reactive({ name: '' })
+        const tasks = ref([
+          { id: id++, name: "Andare in montagna", completed: false, editing: false }
+        ])
+        const filterText = ref('')
+        const filterStatus = ref('all')
+
+        const filteredTasks = computed(() => {
+          let tmp = []
+          tmp = tasks.value.filter(t => t.name.toLowerCase().includes(filterText.value.toLowerCase())); // includes o startsWith
+
+          if (filterStatus.value === 'completed') {
+            return tmp.filter(t => t.completed)
+          } else if (filterStatus.value === 'pending') {
+            return tmp.filter(t => !t.completed)
+          } else {
+            return tmp;
+          }
+          /* Altrimenti si può usare solo una filter in cui nel corpo creaiamo due variabili
+          booleane, una che verifica se il task in considerazione rispetta il filterText e una
+          che verifica se rispetta il filterStatus. Viene quindi restituito il valore ottenuto
+          mettendo in AND logico i due booleani (vogliamo infatti che il task rispetti entrambi i filtri).
+          return tasks.value.filter(t => {
+            const matchesText = t.name.toLowerCase().includes(filterText.value.toLowerCase());
+            const matchesStatus = filterStatus.value === 'all' ||
+                                  (filterStatus.value === 'completed' && t.completed) ||
+                                  (filterStatus.value === 'pending' && !t.completed);
+            return matchesText && matchesStatus;
+          });
+          */
+        })
+
+        function addTask() {
+          if (newTask.name.trim() !== '') {
+            tasks.value.push({ id: id++, name: newTask.name, completed: false, editing: false});
+            newTask.name = '';
+          }
+        }
+
+        function toggleCompletion(task) {
+          task.completed = !task.completed;
+        }
+
+        function deleteTask(index) {
+          tasks.value = tasks.value.filter(t => t.id !== index)
+        }
+
+        return {
+          newTask,
+          tasks,
+          filterText,
+          filterStatus,
+          filteredTasks,
+          addTask,
+          toggleCompletion,
+          deleteTask
+        }
+      }
+    }).mount('#app')
+  </script>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Oggetti - Esercizi base</title>
+</head>
+<body>
+    <h1>Oggetti</h1>
+    <p>Apri la console per eseguire i programmi (usa F12).</p>
+
+    <script>
+        // ===============================
+        // ESERCIZIO 1: GESTIONE LIBRI
+        // ===============================
+        console.log("=== ESERCIZIO 1: GESTIONE LIBRI ===");
+
+        let libreria = [];
+
+        function aggiungiLibro() {
+            let titolo = prompt("Inserisci il titolo del libro:");
+            let autore = prompt("Inserisci l'autore:");
+            let anno = Number(prompt("Inserisci l'anno di pubblicazione:"));
+            let generiInput = prompt("Inserisci i generi separati da virgola:");
+            let generi = generiInput.split(",");
+            let prezzo = Number(prompt("Inserisci il prezzo:"));
+
+            let libro = {
+                titolo: titolo,
+                autore: autore,
+                annoPubblicazione: anno,
+                generi: generi,
+                prezzo: prezzo
+            };
+
+            libreria.push(libro);
+        }
+
+        function stampaLibri() {
+            for (let i = 0; i < libreria.length; i++) {
+                let libro = libreria[i];
+                console.log((i+1) + ") " + libro.titolo + " di " + libro.autore + " (" + libro.annoPubblicazione + ")");
+            }
+        }
+
+        function totalePrezzi() {
+            let totale = 0;
+            for (let i = 0; i < libreria.length; i++) {
+                totale = totale + libreria[i].prezzo;
+            }
+            console.log("Totale prezzi: " + totale + " €");
+        }
+
+        function eliminaLibro() {
+            let titolo = prompt("Inserisci il titolo del libro da eliminare:");
+            for (let i = 0; i < libreria.length; i++) {
+                if (libreria[i].titolo === titolo) {
+                    libreria.splice(i, 1);
+                    console.log("Libro eliminato!");
+                    return;
+                }
+            }
+            console.log("Libro non trovato.");
+        }
+
+        function cercaPerAutore() {
+            let autore = prompt("Inserisci l'autore da cercare:");
+            for (let i = 0; i < libreria.length; i++) {
+                if (libreria[i].autore === autore) {
+                    console.log(libreria[i].titolo + " (" + libreria[i].annoPubblicazione + ")");
+                }
+            }
+        }
+
+        function cercaPerGenere() {
+            let genere = prompt("Inserisci il genere da cercare:");
+            for (let i = 0; i < libreria.length; i++) {
+                for (let j = 0; j < libreria[i].generi.length; j++) {
+                    if (libreria[i].generi[j].trim() === genere) {
+                        console.log(libreria[i].titolo + " (" + libreria[i].autore + ")");
+                    }
+                }
+            }
+        }
+
+        // ===============================
+        // ESERCIZIO 2: LISTA DELLA SPESA
+        // ===============================
+        console.log("=== ESERCIZIO 2: LISTA DELLA SPESA ===");
+
+        let carrello = [];
+
+        function aggiungiProdotto() {
+            let nome = prompt("Inserisci il nome del prodotto:");
+            let quantita = Number(prompt("Inserisci la quantità:"));
+            let prezzoUnitario = Number(prompt("Inserisci il prezzo unitario:"));
+
+            let prodotto = {
+                nome: nome,
+                quantita: quantita,
+                prezzoUnitario: prezzoUnitario
+            };
+
+            carrello.push(prodotto);
+        }
+
+        function stampaCarrello() {
+            let totale = 0;
+            for (let i = 0; i < carrello.length; i++) {
+                let prodotto = carrello[i];
+                let parziale = prodotto.quantita * prodotto.prezzoUnitario;
+                console.log((i+1) + ") " + prodotto.nome + " - " + prodotto.quantita + " x " + prodotto.prezzoUnitario + "€ = " + parziale + "€");
+                totale = totale + parziale;
+            }
+            if (totale > 100) {
+                console.log("Applicato sconto del 10%!");
+                console.log("Totale pre sconto: " + totale + "€");
+                console.log("Totale scontato: " + (totale * 0.9)+ "€");
+            } else {
+                console.log("Totale complessivo: " + totale + "€");
+            }
+            
+        }
+
+        function eliminaProdotto() {
+            let nome = prompt("Inserisci il nome del prodotto da eliminare:");
+            for (let i = 0; i < carrello.length; i++) {
+                if (carrello[i].nome === nome) {
+                    carrello.splice(i, 1);
+                    console.log("Prodotto eliminato!");
+                    return;
+                }
+            }
+            console.log("Prodotto non trovato.");
+        }
+
+        function modificaQuantita() {
+            let nome = prompt("Inserisci il nome del prodotto da modificare:");
+            let nuovaQuantita = Number(prompt("Inserisci la nuova quantità:"));
+            for (let i = 0; i < carrello.length; i++) {
+                if (carrello[i].nome === nome) {
+                    carrello[i].quantita = nuovaQuantita;
+                    console.log("Quantità aggiornata!");
+                    return;
+                }
+            }
+            console.log("Prodotto non trovato.");
+        }
+
+        // ===============================
+        // ESERCIZIO 3: RUBRICA
+        // ===============================
+        console.log("=== ESERCIZIO 3: RUBRICA ===");
+
+        let rubrica = [];
+
+        function aggiungiContatto() {
+            let nome = prompt("Inserisci il nome:");
+            let telefono = prompt("Inserisci il numero di telefono:");
+            let email = prompt("Inserisci l'email:");
+
+            let contatto = {
+                nome: nome,
+                telefono: telefono,
+                email: email
+            };
+
+            rubrica.push(contatto);
+        }
+
+        function stampaRubrica() {
+            for (let i = 0; i < rubrica.length; i++) {
+                let c = rubrica[i];
+                console.log((i+1) + ") " + c.nome + " - Tel: " + c.telefono + " - Email: " + c.email);
+            }
+        }
+
+        function cercaContatto() {
+            let nome = prompt("Inserisci il nome da cercare:");
+            for (let i = 0; i < rubrica.length; i++) {
+                if (rubrica[i].nome === nome) {
+                    console.log(rubrica[i].nome + " - Tel: " + rubrica[i].telefono + " - Email: " + rubrica[i].email);
+                    return;
+                }
+            }
+            console.log("Contatto non trovato.");
+        }
+
+        function eliminaContatto() {
+            let nome = prompt("Inserisci il nome del contatto da eliminare:");
+            for (let i = 0; i < rubrica.length; i++) {
+                if (rubrica[i].nome === nome) {
+                    rubrica.splice(i, 1);
+                    console.log("Contatto eliminato!");
+                    return;
+                }
+            }
+            console.log("Contatto non trovato.");
+        }
+
+        function modificaContatto() {
+            let nome = prompt("Inserisci il nome del contatto da modificare:");
+            for (let i = 0; i < rubrica.length; i++) {
+                if (rubrica[i].nome === nome) {
+                    let nuovoTelefono = prompt("Nuovo telefono (lascia vuoto per non modificare):");
+                    let nuovaEmail = prompt("Nuova email (lascia vuoto per non modificare):");
+                    if (nuovoTelefono !== "") rubrica[i].telefono = nuovoTelefono;
+                    if (nuovaEmail !== "") rubrica[i].email = nuovaEmail;
+                    console.log("Contatto aggiornato!");
+                    return;
+                }
+            }
+            console.log("Contatto non trovato.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Consegna - Catalogo Aerei</title>
+  <style>
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: #f0f4f8;
+      color: #1f2937;
+      margin: 0;
+      padding: 32px;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: #0c4a6e;
+    }
+    h2 {
+      margin-top: 18px;
+      font-size: 18px;
+      color: #075985;
+    }
+    .section {
+      background: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    ul {
+      margin: 8px 0 12px 20px;
+    }
+    code {
+      background: #e0f2fe;
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #0369a1;
+    }
+    .highlight {
+      color: #0ea5a4;
+      font-weight: 600;
+    }
+    .hint {
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catalogo <span class="highlight">Aerei</span></h1>
+
+    <div class="section">
+      	<h2>Descrizione</h2>
+      	<p>Creare un catalogo di aerei. Ogni aereo deve avere le seguenti proprietà:</p>
+      	<ul>
+			<li><strong>modello</strong> (string)</li>
+			<li><strong>compagnia</strong> (string)</li>
+			<li><strong>anno</strong> di produzione (number)</li>
+			<li><strong>tipo</strong> — Passeggeri / Cargo / Militare / Privato (string)</li>
+		</ul>
+    </div>
+
+    <div class="section">
+      	<h2>Requisiti funzionali (obbligatori)</h2>
+      	<ul>
+			<li>Usare componenti per lista e scheda: <code>PlaneList.vue</code> e <code>PlaneCard.vue</code>.</li>
+			<li>Visualizzare la lista degli aerei presenti.</li>
+			<li>Implementare un form per <strong>aggiungere</strong> nuovi aerei.</li>
+			<li>Permettere la <strong>rimozione</strong> di un aereo.</li>
+			<li>Aggiungere filtri per <strong>modello</strong> e <strong>tipo</strong> di aereo.</li>
+			<li>Mostrare il numero totale di aerei.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+        <h2>Requisiti non obbligatori (bonus)</h2>
+        <ul>
+			<li>Aggiungere proprietà avanzate agli aerei: capacità passeggeri, autonomia di volo, stato manutenzione, velocità massima, anno ultimo check.</li>
+			<li>Aggiungere filtri per capacità, autonomia e stato manutenzione.</li>
+			<li>Ordinamento della lista: per anno, velocità, autonomia, crescente/decrescente.</li>
+			<li>Calcoli e statistiche: numero di aerei per tipo, percentuale di aerei militari, media autonomia, media capacità passeggeri.</li>
+			<li>Usare uno <code>slot</code> per mostrare un'icona “⚠️” se l'aereo è in manutenzione.</li>
+			<li>Ordinamento automatico degli aerei militari in cima alla lista.</li>
+			<li>Colori dinamici per tipo di aereo (es. Passeggeri, Cargo, Militare, Privato).</li>
+        </ul>
+    </div>
+  </div>
+</body>
+</html>

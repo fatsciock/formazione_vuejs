@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>13 Component Slot</title>
+    </head>
+    <body id="app">
+        <child-comp></child-comp>
+
+        <child-comp> <p>Qua passo un p</p> </child-comp>
+
+        <child-comp> <button>Click me</button> </child-comp>
+    </body>
+
+    <!-- Vue.js -->
+    <script type="module">
+        const { createApp, ref } = Vue
+        import ChildComp from './child.js'
+
+        createApp({
+            components: {
+                ChildComp
+            }
+        }).mount('#app')
+    </script>
+</html>

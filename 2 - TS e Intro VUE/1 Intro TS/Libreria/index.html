@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Libreria Completa TS</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form, .controls { margin-bottom: 20px; }
+        label { display: block; margin: 5px 0 2px; }
+        input { margin-bottom: 10px; padding: 5px; width: 200px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #888; padding: 8px; text-align: left; }
+        th { background: #eee; }
+        button { margin-right: 5px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Libreria Completa</h1>
+
+    <form id="bookForm">
+        <label for="titolo">Titolo: <input type="text" id="titolo" required></label>
+        <label for="autore">Autore: <input type="text" id="autore" required></label>
+        <label for="anno">Anno di pubblicazione: <input type="number" id="anno" required></label>
+        <label for="generi">Generi (separati da virgola): <input type="text" id="generi"></label>
+        <label for="prezzo">Prezzo (€): <input type="number" id="prezzo" step="0.01" required></label>
+        <button type="submit">Aggiungi libro</button>
+    </form>
+
+    <div class="controls">
+        <label for="search">Cerca per autore o genere:</label>
+        <input type="text" id="search" placeholder="Scrivi qualcosa">
+        <button id="cerca">Cerca</button>
+        <button id="mostraTutti">Mostra tutti</button>
+    </div>
+
+    <h2>Elenco libri</h2>
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>Titolo</th>
+                <th>Autore</th>
+                <th>Anno</th>
+                <th>Generi</th>
+                <th>Prezzo</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <p id="totalePrezzi">Totale prezzi: 0 €</p>
+
+    <script src="libreria.js"></script>
+</body>
+</html>

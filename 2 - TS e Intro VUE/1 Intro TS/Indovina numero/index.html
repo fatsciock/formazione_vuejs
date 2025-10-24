@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gioco: Indovina il numero TS</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #game, #result { margin-top: 20px; }
+    .hidden { display: none; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🎯 Indovina il numero</h1>
+
+  <div id="setup">
+    <p>Imposta i parametri del gioco:</p>
+    <label>Min: <input type="number" id="min" value="1"></label><br><br>
+    <label>Max: <input type="number" id="max" value="100"></label><br><br>
+    <label>Tentativi: <input type="number" id="tentativi" value="10"></label>
+    <label>Senza tentativi: <input type="checkbox" id="noTentativi"></label><br><br>
+    <button id="start">Inizia</button>
+  </div>
+
+  <div id="game" class="hidden">
+    <p>Ho scelto un numero tra <span id="range"></span>. Hai <span id="vite"></span> vite!</p>
+    <input type="number" id="guess" placeholder="Inserisci il tuo numero">
+    <button id="check">Prova</button>
+    <p id="feedback"></p>
+  </div>
+
+  <div id="result" class="hidden">
+    <p id="finalMessage"></p>
+    <button id="restart">Rigioca</button>
+  </div>
+
+  <script src="indovina.js"></script>
+</body>
+</html>

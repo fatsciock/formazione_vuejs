@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcolatrice Interattiva</title>
+</head>
+<body>
+    <h1>Calcolatrice Interattiva (console)</h1>
+    <p>Apri la console per eseguire il programma.</p>
+
+    <script>
+        // Funzioni per le operazioni matematiche
+        function somma(a, b) {
+            return a + b;
+        }
+        function sottrazione(a, b) {
+            return a - b;
+        }
+        function moltiplicazione(a, b) {
+            return a * b;
+        }
+        function divisione(a, b) {
+            if (b === 0) {
+                alert("Errore: divisione per zero!");
+                return null;
+            }
+            return a / b;
+        }
+
+        function calcolatrice() {
+            let continua = true;
+
+            while (continua) {
+                let scelta = prompt("Scegli un'operazione:\n1. Somma\n2. Sottrazione\n3. Moltiplicazione\n4. Divisione\n5. Esci");
+
+                if (scelta === "5" || scelta === null) {
+                    continua = false;
+                    alert("Uscita dalla calcolatrice.");
+                    break;
+                }
+
+                let num1 = parseFloat(prompt("Inserisci il primo numero:"));
+                let num2 = parseFloat(prompt("Inserisci il secondo numero:"));
+                let risultato;
+
+                switch (scelta) {
+                    case "1":
+                        risultato = somma(num1, num2);
+                        break;
+                    case "2":
+                        risultato = sottrazione(num1, num2);
+                        break;
+                    case "3":
+                        risultato = moltiplicazione(num1, num2);
+                        break;
+                    case "4":
+                        risultato = divisione(num1, num2);
+                        break;
+                    default:
+                        alert("Operazione non valida!");
+                        continue;
+                }
+
+                if (risultato !== null && risultato !== undefined) {
+                    alert("Risultato: " + risultato);
+                }
+            }
+        }
+
+        // Avvio del programma
+        calcolatrice();
+    </script>
+</body>
+</html>

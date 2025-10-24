@@ -1,0 +1,49 @@
+Scaletta argomenti Vue (lez 1):
+	- SFC (insieme a loro crei un primo progetto, con solo ts ed eslint, e gli spieghi la struttura)
+	- declarative rendering -> descriviamo come l'HTML deve mostrarsi basandoci sullo state JS. (guarda tutorial vue e tienilo sotto)
+		Si auto aggiorna
+	- reactive: lo stato che è in grado di eseguire trigger di update quando si aggiorna si chiama reactive (fai schema alla lavagna
+		di js + html per spiegarlo)
+	- reactive vs ref
+	- MOSTRA un esempio in cui usi sia ref che reactive
+	- {{}} vengono usate solo per text interpolation, per effettuare il binding di attributi va usata la
+		direttiva v-bind (:)
+	- cosa sono le direttive in vue: qualsiasi cosa che parte con v-
+	- MOSTRA v-bind con il cambio colore del testo
+	- v-on per gli eventi (@): esempio con un bottone che fa cambiare il testo
+	- ES: implementare il contatore (così fai vedere la differenza con il contatore fatto in js)
+	- v-model
+	- MOSTRA esempio con v-bind e v-on e mostra come si può accomunare il tutto
+	- v-if
+	- v-for
+	
+Scaletta argomenti Vue (lez 2):
+	- ripasso direttive vecchie (direi di fare ripasso generale di tutto)
+	- mostra computed con esempio del carrello (totale = prezzo unitario per quantità)
+		- spiega differenza tra computed e metodi: la computed fa cache i metodi no: quando c'è re rendering i metodi vengono sempre eseguiti e se sono pesanti questo peggiora le prestazioni.
+			Le computed invece utilizzano la cache per cui se non cambia qualcosa non vengono ricalcolate
+	- esercizi:
+		- (02_todo) riprendi todo con nuove aggiunte (cerca e segna todo come completati) per chi è più avanti
+		- (04_spesa) es nuovo della spesa (con computed) per chi è più avanti
+		- per chi è più indietro proponi es più base, tipo:
+			- (03_form)
+			- (05_rich_editor)
+	- mattina è praticamente andata
+	
+	- fetch
+	- watcher: la computed si ricalcola sulla dei cambiamenti delle dipendenze definite al suo interno.
+		Cosa succede se invece vogliamo FARE qualcosa quando cambia un determinato valore? Usiamo i watcher, cioè "osserviamo" una o più
+		sorgenti reattive (ref) e quando cambiamo facciamo qualcosa
+	- (08_fetch_watchers_intro) watcher che facciamo insieme: todo
+	- (TODO) watcher che facciamo insieme(?): cercare github users
+	- (08_fetch_watchers_completo) es completo (Dragon Ball): da far fare a loro?
+
+
+	- componenti: dividere il codice in tanti blocchi diversi. Spiega concetto di genitore/figlio
+	- (HelloBox) crea un componente dummy, e semplicemente fai vedere come possiamo renderizzarne più di uno con vfor
+	- (HelloBoxProps) spiega props: modo di passare a un componente dati dal padre, in maniera tale da "personalizzarlo"
+	- (HelloBoxEmit) spiega emits: invio di eventi dal figlio al padre
+	- (HelloBoxSlot) spiega slot:
+	
+	- es finale: fare tipo la homepage di youtube (sarebbe top trovare un'API che restituisce informazioni tipo titolo, descrizione,
+		views, mi piace, autore, ecc)

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>7.1 es</title>
+        <style>
+            .edit-mode {
+              background-color: #f0f0f0;
+            }
+
+            .mr {
+              margin-right: 10px;
+            }
+
+            .mb {
+              margin-bottom: 10px;
+            }
+
+        </style>
+    </head>
+    <body id="app">
+        <h1>Rubrica</h1>
+        <input type="text" @input="filterContacts" placeholder="Filtra per nome">
+
+        <ul>
+            <li v-for="contact in filteredContacts" :key="contact.id" :class="{ 'edit-mode': contact.editing, 'mb': true}">
+                <span v-if="!contact.editing" class="mr">{{ contact.name }} - {{ contact.phone }}</span>
+                <div v-else style="display: inline-block;">
+                    <input v-model="contact.name" placeholder="Nome" class="mr">
+                    <input type="number" v-model="contact.phone" placeholder="Telefono" class="mr">
+                </div>
+                <button @click="editContact(contact)" class="mr">{{ contact.editing ? 'Salva' : 'Modifica' }}</button>
+                <button @click="deleteContact(contact.id)" class="mr">Elimina</button>
+            </li>
+        </ul>
+
+        <h2>Aggiungi Nuovo Contatto</h2>
+        <input type="text" v-model="newContact.name" placeholder="Nome" class="mr">
+        <input type="number" v-model="newContact.phone" placeholder="Telefono" class="mr">
+        <button @click="addContact">Aggiungi</button>
+
+        <p v-if="contacts.length === 0">Nessun contatto nella rubrica</p>
+        <p v-else>Hai {{ contacts.length }} contatto/i nella rubrica</p>
+    </body>
+
+    <!-- Vue.js -->
+    <script>
+        const { createApp, ref, reactive } = Vue
+
+        createApp({
+            setup() {
+
+                const newContact = reactive({ name: '', phone: 0 })
+                const contacts = ref([])
+                const filteredContacts = ref([])
+                let id = 0
+
+                function addContact() {
+                    if (newContact.name.trim() !== '' && !isNaN(newContact.phone)) {
+                        contacts.value.push({ id: id++, name: newContact.name, phone: newContact.phone, editing: false });
+                        filteredContacts.value = contacts.value;
+                        newContact.name = '';
+                        newContact.phone = '';
+                    }
+                }
+
+                function editContact(contact) {
+                    contact.editing = !contact.editing;
+                }
+
+                function deleteContact(index) {
+                    contacts.value = contacts.value.filter(contact => contact.id !== index);
+                    filteredContacts.value = contacts.value
+                    
+                }
+
+                function filterContacts(e) {
+                    filteredContacts.value = contacts.value.filter(c => 
+                        c.name.toLowerCase().startsWith(e.target.value.toLowerCase())
+                    );
+                }
+
+                return {
+                    newContact,
+                    contacts,
+                    filteredContacts,
+                    addContact,
+                    editContact,
+                    deleteContact,
+                    filterContacts
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

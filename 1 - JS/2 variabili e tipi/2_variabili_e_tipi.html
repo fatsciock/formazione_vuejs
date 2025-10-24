@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lezione 1 - Variabili e Tipi (Esercizi)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    h1 { color: #0b3d91; margin-bottom: 0; }
+    h2 { margin-top: 32px; color: #0b3d91; }
+    code, pre { background: #f6f8fa; padding: 2px 6px; border-radius: 6px; }
+    .hint { background: #fffceb; border: 1px solid #ffe58f; padding: 8px 12px; border-radius: 8px; }
+    .note { color: #555; }
+    ol { padding-left: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Lezione 1 - Variabili e Tipi</h1>
+  <p class="note">Usa questo file in aula con <strong>VS Code + Live Server</strong>. Apri la <strong>Console</strong> del browser (F12 → Console).<br/>
+  Gli step sono <strong>commentati</strong> dentro il tag <code>&lt;script&gt;</code>: sblocca (togliendo <code>//</code>) una sezione per volta.</p>
+
+  <h2>Indice rapido</h2>
+  <ol>
+    <li>Variabili: <code>let</code> e <code>const</code></li>
+    <li>Tipi primitivi e <code>typeof</code></li>
+    <li>Template string</li>
+    <li>Conversioni (esplicite vs implicite)</li>
+    <li>Mini-esercizi con <code>alert</code> e <code>prompt</code></li>
+  </ol>
+
+  <hr />
+
+  <script>
+  // ============================================================
+  // STEP 0 - Benvenuto (verifica che la console sia aperta)
+  // ============================================================
+  // console.log("[OK] File caricato. Apri la Console del browser (F12 → Console).");
+
+  // ============================================================
+  // STEP 1 - Variabili: let vs const
+  // ============================================================
+  // console.log("--- STEP 1: let vs const ---");
+  // let nome = "Andrea";
+  // console.log("nome:", nome);
+  // nome = "Luca"; // riassegnazione consentita
+  // console.log("nome aggiornato:", nome);
+
+  // const pi = 3.14;
+  // console.log("pi:", pi);
+  // pi = 3.1415; // ❌ Prova a sbloccare questa riga: darà errore perché const non si può riassegnare
+
+  // // Nota: var è legacy. Lo citiamo soltanto.
+  // // var città = "Cesena";
+  // // console.log("città (var):", città);
+
+  // ============================================================
+  // STEP 2 - Tipi primitivi e typeof
+  // ============================================================
+  // console.log("--- STEP 2: tipi primitivi e typeof ---");
+  // const messaggio = "Ciao";          // string
+  // const numero = 42;                 // number
+  // const isAdmin = false;             // boolean
+  // const nothing = null;              // null
+  // let notDefined;                    // undefined (non inizializzata)
+
+  // console.log(typeof messaggio, messaggio);
+  // console.log(typeof numero, numero);
+  // console.log(typeof isAdmin, isAdmin);
+  // console.log(typeof nothing, nothing);     // ⚠️ typeof null === "object" (storico bug di JS)
+  // console.log(typeof notDefined, notDefined);
+
+  // ============================================================
+  // STEP 3 - Template string (backtick) e interpolazione
+  // ============================================================
+  // console.log("--- STEP 3: template string ---");
+  // const firstName = "Giulia";
+  // const saluto1 = "Ciao, " + firstName + "!"; // concatenazione classica
+  // const saluto2 = `Ciao, ${firstName}!`;        // template string (consigliato)
+  // console.log(saluto1);
+  // console.log(saluto2);
+
+  // ============================================================
+  // STEP 4 - Conversioni: esplicite vs implicite
+  // ============================================================
+  // console.log("--- STEP 4: conversioni ---");
+  // // Implicite (a volte sorprendenti):
+  // console.log("5" + 2); // "52" → string concatenation
+  // console.log("5" * 2); // 10  → coerces to number
+  // console.log(true + 1); // 2   → true diventa 1
+
+  // // Esplicite (preferibili):
+  // console.log(Number("5") + 2); // 7
+  // console.log(String(42) + "€"); // "42€"
+  // console.log(Boolean(0), Boolean(1)); // false true
+
+  // // === vs == (anticipazione utile):
+  // console.log(0 == false);  // true   (converte i tipi)
+  // console.log(0 === false); // false  (confronto senza conversione → consigliato)
+
+  // ============================================================
+  // STEP 5 - Mini-esercizi (sblocca UNA funzione alla volta e la relativa chiamata)
+  // ============================================================
+
+  // // Esercizio 1 - Somma due numeri (mostra differenza tra concatenazione e somma)
+  // function esercizioSomma() {
+  //   const a = prompt("Inserisci il primo numero:");
+  //   const b = prompt("Inserisci il secondo numero:");
+  //   console.log("[Gremlin] 'a' e 'b' sono stringhe:", a, b);
+  //   console.log("Concatenazione:", a + b); // es. "2" + "3" → "23"
+  //   const somma = Number(a) + Number(b);
+  //   console.log("Somma corretta:", somma);
+  //   alert("Somma = " + somma);
+  // }
+  // // esercizioSomma();
+
+  // // Esercizio 2 - Messaggio personalizzato
+  // function esercizioSaluto() {
+  //   const nome = prompt("Come ti chiami?");
+  //   console.log("Ciao, " + nome + "!");
+  //   alert(`Piacere di conoscerti, ${nome}!`);
+  // }
+  // // esercizioSaluto();
+
+  // // Esercizio 3 - Età e booleano
+  // function esercizioEta() {
+  //   const input = prompt("Quanti anni hai?");
+  //   const eta = Number(input);
+  //   const isAdult = eta >= 18;
+  //   console.log("Età:", eta, "→ isAdult:", isAdult);
+  //   if (isAdult) {
+  //     alert("Puoi entrare ✅");
+  //   } else {
+  //     alert("Mi dispiace, non puoi entrare ❌");
+  //   }
+  // }
+  // // esercizioEta();
+
+  // // Esercizio 4 - Bonus: Template string con più variabili
+  // function esercizioTemplate() {
+  //   const nome = prompt("Nome:");
+  //   const città = prompt("Città:");
+  //   const anni = Number(prompt("Età:"));
+  //   const msg = `Mi chiamo ${nome}, ho ${anni} anni e vivo a ${città}.`;
+  //   console.log(msg);
+  //   alert(msg);
+  // }
+  // // esercizioTemplate();
+
+  // ============================================================
+  // FINE. Passa alla sezione successiva della lezione quando tutti hanno eseguito almeno 2 esercizi.
+  // ============================================================
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body id="app">
+        <child-comp @response="saveMsg"></child-comp>
+        <p>{{ childMsg }}</p>
+    </body>
+
+    <!-- Vue.js -->
+    <script type="module">
+        const { createApp, ref } = Vue
+        import ChildComp from './child.js'
+
+        createApp({
+            components: {
+                ChildComp
+            },
+            setup() {
+                const childMsg = ref('No child msg yet')
+
+                function saveMsg(message) {
+                    childMsg.value = message
+                }
+
+                return {
+                    childMsg,
+                    saveMsg
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

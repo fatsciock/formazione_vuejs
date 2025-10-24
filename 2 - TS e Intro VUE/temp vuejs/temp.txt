@@ -1,0 +1,10 @@
+Rubrica
+parte pubblica e parte privata (con login)
+con vue intercettare il submit, validare i dati e poi fare richiesta al server
+
+Moduli singoli:
+ - pagina con form, fare arrivare i dati al server, salvare su db, e data una risposta
+ - visualizzazione elenco di voci (paginazione)
+ - login e protezione pagine
+ - come salvare le password
+ - progettazione db (MySQL)

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Sezione 3 - Operatori, Condizioni e Cicli</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 16px; line-height: 1.6; }
+    h1 { color: #0b3d91; margin-bottom: 6px; }
+    h2 { color: #0b3d91; margin-top: 22px; }
+    pre { background: #f6f8fa; padding: 12px; border-radius: 8px; overflow:auto; }
+    code { background: #f6f8fa; padding: 2px 6px; border-radius: 6px; }
+    .hint { background:#fffceb; border:1px solid #ffe58f; padding:10px; border-radius:8px; }
+    .btn { display:inline-block; margin-top:12px; padding:8px 12px; border-radius:6px; border:1px solid #0b3d91; color:#0b3d91; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <h1>Sezione 3 — Operatori, Condizioni e Cicli (2h)</h1>
+  <p>Usa questo file con <strong>VS Code + Live Server</strong>. Apri la <strong>Console</strong> del browser (F12 → Console) per eseguire gli esempi. Tutte le sezioni sono commentate: sblocca (rimuovi <code>//</code>) le righe che vuoi far eseguire in aula.</p>
+
+  <h2>1. Operatori aritmetici (15 min)</h2>
+  <p><code>+, -, *, /, %, **</code> e <code>++</code>/<code>--</code></p>
+
+  <h2>2. Operatori di confronto (15 min)</h2>
+  <p><code>&gt;, &lt;, &gt;=, &lt;=, ==, ===, !=, !==</code></p>
+
+  <h2>3. Operatori logici (15 min)</h2>
+  <p><code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT). Concatenare condizioni per decisioni composte.</p>
+
+  <h2>4. Strutture di controllo (30 min)</h2>
+  <p><code>if / else / else if</code> e <code>switch</code> con <code>case</code> e <code>break</code>.</p>
+
+  <h2>5. Cicli (30 min)</h2>
+  <p>Concetto: ripetere un blocco di istruzioni. Esempi: <code>for</code>, <code>while</code>, <code>do...while</code>, <code>for...of</code>, <code>for...in</code>.</p>
+
+  <h2>6. Esempi pratici e esercizi (15 min)</h2>
+  <p>Prova gli esercizi in console sbloccando le funzioni qui sotto.</p>
+
+  <p class="hint">Suggerimento didattico: sblocca e fai eseguire un esempio alla volta, poi chiedi agli studenti di modificarlo (cambiare limiti, aggiungere casi, usare <code>for...of</code>, ecc.).</p>
+
+  <script>
+    // ===============================
+    // 1. Operatori aritmetici (15 min)
+    // ===============================
+    // console.log("Somma: ", 5 + 3);
+    // console.log("Differenza: ", 10 - 4);
+    // console.log("Moltiplicazione: ", 6 * 7);
+    // console.log("Divisione: ", 20 / 5);
+    // console.log("Resto (10 % 3): ", 10 % 3);
+    // console.log("Esponente 2**3: ", 2 ** 3);
+
+    // let contatore = 0;
+    // contatore++;
+    // console.log("Contatore dopo ++: ", contatore);
+
+    // ===============================
+    // 2. Operatori di confronto (15 min)
+    // ===============================
+    // console.log("5 == '5' ?", 5 == "5");   // true
+    // console.log("5 === '5' ?", 5 === "5"); // false
+    // console.log("0 == false ?", 0 == false);   // true
+    // console.log("0 === false ?", 0 === false); // false
+
+    // console.log("isNaN('ciao'):", isNaN("ciao")); // true
+
+    // ===============================
+    // 3. Operatori logici (15 min)
+    // ===============================
+    // let eta = 20;
+    // let citta = "Roma";
+    // if (eta >= 18 && citta === "Roma") {
+    //   console.log("Puoi partecipare all'evento!");
+    // } else {
+    //   console.log("Non puoi partecipare.");
+    // }
+
+    // ===============================
+    // 4. Strutture di controllo (30 min)
+    // ===============================
+    // let numero = parseInt(prompt("Inserisci un numero:"));
+    // if (numero > 0) {
+    //   console.log("Positivo");
+    // } else if (numero < 0) {
+    //   console.log("Negativo");
+    // } else {
+    //   console.log("Zero");
+    // }
+
+    // let giorno = prompt("Giorno della settimana:").toLowerCase();
+    // switch (giorno) {
+    //   case "lunedì":
+    //   case "martedì":
+    //   case "mercoledì":
+    //   case "giovedì":
+    //   case "venerdì":
+    //     console.log("Giorno feriale");
+    //     break;
+    //   case "sabato":
+    //   case "domenica":
+    //     console.log("Weekend 🎉");
+    //     break;
+    //   default:
+    //     console.log("Giorno non riconosciuto");
+    // }
+
+    // ===============================
+    // 5. Cicli (30 min)
+    // ===============================
+    // for (let i = 1; i <= 10; i++) {
+    //   console.log(i);
+    // }
+
+    // let i = 1;
+    // while (i <= 10) {
+    //   console.log(i);
+    //   i++;
+    // }
+
+    // let j = 1;
+    // do {
+    //   console.log("do...while:", j);
+    //   j++;
+    // } while (j <= 3);
+
+    // const arr = [10, 20, 30];
+    // for (let v of arr) {
+    //   console.log("for...of value:", v);
+    // }
+
+    // const obj = { nome: "Anna", eta: 25 };
+    // for (let k in obj) {
+    //   console.log(k + " -> " + obj[k]);
+    // }
+
+    // ===============================
+    // 6. Esempi pratici e esercizi (15 min)
+    // ===============================
+    // function calcolatriceSimple() {
+    //   const op = prompt("Operazione: +, -, *, /");
+    //   const a = parseFloat(prompt("Primo numero:"));
+    //   const b = parseFloat(prompt("Secondo numero:"));
+    //   let res;
+    //   switch (op) {
+    //     case "+":
+    //       res = a + b;
+    //       break;
+    //     case "-":
+    //       res = a - b;
+    //       break;
+    //     case "*":
+    //       res = a * b;
+    //       break;
+    //     case "/":
+    //       res = (b === 0) ? null : a / b;
+    //       break;
+    //     default:
+    //       alert("Operazione non valida");
+    //       return;
+    //   }
+    //   if (res === null) {
+    //     alert("Errore: divisione per zero");
+    //   } else {
+    //     alert("Risultato: " + res);
+    //   }
+    // }
+    // // calcolatriceSimple();
+
+    // function puoiGuidare() {
+    //   const eta = parseInt(prompt("Quanti anni hai?"));
+    //   const patente = prompt("Hai la patente? (sì/no)").toLowerCase();
+    //   const auto = prompt("Hai un'auto? (sì/no)").toLowerCase();
+    //   if (eta >= 18 && patente === "sì" && auto === "sì") {
+    //     alert("Puoi guidare");
+    //   } else {
+    //     alert("Non puoi guidare");
+    //   }
+    // }
+    // // puoiGuidare();
+
+    // function indovinaNumero() {
+    //   const segreto = Math.floor(Math.random() * 100) + 1;
+    //   let tentativi = 0;
+    //   const max = 7;
+    //   while (tentativi < max) {
+    //     tentativi++;
+    //     const guess = parseInt(prompt("Tentativo " + tentativi + " di " + max + ". Indovina il numero (1-100):"));
+    //     if (guess === null || isNaN(guess)) {
+    //       alert("Partita interrotta o input non valido");
+    //       return;
+    //     }
+    //     if (guess === segreto) {
+    //       alert("Hai vinto in " + tentativi + " tentativi!");
+    //       return;
+    //     } else if (guess < segreto) {
+    //       alert("Troppo basso");
+    //     } else {
+    //       alert("Troppo alto");
+    //     }
+    //   }
+    //   alert("Hai esaurito i tentativi. Il numero era: " + segreto);
+    // }
+    // // indovinaNumero();
+  </script>
+
+</body>
+</html>
