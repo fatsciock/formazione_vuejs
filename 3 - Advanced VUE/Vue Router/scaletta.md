@@ -3,6 +3,13 @@ Scaletta lezione Vue Router:
 - perchè ci serve Vue Router
 - creazione progetto Vue con Vue Router
 - spiega struttura progetto (app.use(router) e index.ts dentro la cartella router)
+- prima parte:
+    - esempi semplici su pagine vuote in cui cambia giusto il titolo della pagina (con router-view e router-link/router.push())
+    - rotte dinamiche con parametri (:nomeParametro nella rotta)
+    - fare esempi con degli Utenti (Users): esiste una lista di utenti (UsersList) e una pagina con i dettagli di un utente (UserDetails), oltre ad altre pagine come AboutUsView e HomeView
+- seconda parte:
+    - iniziare il progetto dell'e-commerce: condividere i requisiti funzionali e quindi le pagine che dovranno essere presenti (ancora in definizione)
+
 
 Logica con cui creiamo le rotte:
 - partiamo da come si farebbe in un sito web normale: definiamo le pagine (Home, About, Catalogo, Dettagli Prodotto, Carrello, Checkout, Ordini)
@@ -11,10 +18,3 @@ Logica con cui creiamo le rotte:
 
 Come navigare:
 - `router-view` e `router-link`
-
-### Creaiamo la prima App multi pagina!
-- in App mettiamo un piccolo header con le voci delle pagine a cui posso navigare (tramite `router-link`)
-- in App inserisco la `router-view`
-
-In questo esempio crea pagine molto semplici (Home, AboutUs, ...)
-
